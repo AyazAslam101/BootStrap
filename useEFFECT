@@ -1,0 +1,14 @@
+useEffect(() => {
+  const handleChargerCode = (e) => {
+    setIsFetchingCode(true); // Set a loading state before fetching the code.
+    getBlinkCode() // Assuming getBlinkCode is a function that returns a promise.
+      .then((response) => {
+        setCode(response?.put); // Update the state with the fetched code.
+      })
+      .catch((err) => {
+        console.log(err); // Log any errors that occur during fetching.
+      });
+  };
+
+  handleChargerCode(); // Call the function immediately when the component mounts.
+}, []);
